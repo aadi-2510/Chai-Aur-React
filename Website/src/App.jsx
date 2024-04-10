@@ -1,21 +1,20 @@
 
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar from './Navbar';
+import Navbar from './Components/Navbar';
 import Home from './Home';
-import Services from './Services';
-import AboutUs from './AboutUs';
-import Books from './Books';
-import Loandoc from './Loandoc';
+import Services from './Components/Services';
+import AboutUs from './Components/AboutUs';
+import Books from './Components/Books';
+import Loandoc from './Components/Loandoc';
 import { BrowserRouter as Router , Routes , Route } from 'react-router-dom';
-
-import LoanEmi from './LoanEmi';
 
 function App() {
   
 
   return (
     <>
+    
     <Router>
      <Navbar/>
       <Routes>
@@ -26,8 +25,7 @@ function App() {
         <Route path='/Loandoc' element={<Loandoc/>} />
       </Routes>
     </Router>  
-     {/* <Loandoc/>
-     <LoanEmi/> */}
+     {/* <LoanEmi/> */}
     </>
   )
 }
