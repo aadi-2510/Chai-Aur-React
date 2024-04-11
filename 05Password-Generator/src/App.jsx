@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 export default function App() {
 
@@ -6,6 +6,9 @@ export default function App() {
   const [number, setNumber] = useState(false);
   const [char, setChar] = useState(false);
   const [password, setPassword] = useState('');
+
+  // useRef hook
+  const passwordRef = useRef(null);
 
   const passwordGenerator = useCallback(() => {
     let password = '';
@@ -20,11 +23,18 @@ export default function App() {
     setPassword(password)
   }, [length, number, char, setPassword])
 
+  const copyPassword = useCallback( () => {
+    // current? represents that we've ( ? - optionally selected) current value, in case there might be null values in useRef hook 
+    passwordRef.current?.select();
+    passwordRef.current?.setSelectionRange(0 , 24);
+    window.navigator.clipboard.writeText(password)
+  },[password])
+
   useEffect( () => {passwordGenerator()} , [length, number , char , passwordGenerator])
   return (
     
-    <div className="w-full max-w-md mx-auto shadow-md rounded-lg px-4 py-3 my-8 bg-gray-800 text-orange-500">
-      <h1 className='text-white text-center my-3'>Password generator</h1>
+    <div className="w-full max-w-md mx-auto shadow-md rounded-lg px-4 py-3 my-8 bg-gray-800">
+      <h1 className='text-lime-500 text-2xl text-center m-4 p-1 font-bold'>PASSWORD GENERATOR</h1>
     <div className="flex shadow rounded-lg overflow-hidden mb-4">
         <input
             type="text"
@@ -32,12 +42,13 @@ export default function App() {
             className="outline-none w-full py-1 px-3"
             placeholder="Password"
             readOnly
-            // ref={passwordRef}
+            ref ={passwordRef}
+          
         />
         <button
-        onClick={copyPasswordToClipboard}
-        className='outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0'
-        >copy</button>
+        onClick={copyPassword}
+        className='outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0 hover:bg-orange-500 font-bold transition duration-300 ease-in-out'
+        >Copy</button>
         
     </div>
     <div className='flex text-sm gap-x-2'>
@@ -47,7 +58,7 @@ export default function App() {
         min={6}
         max={100}
         value={length}
-         className='cursor-pointer'
+         className='font-bold'  style={{ cursor: 'pointer', color: 'red' }}
          onChange={(e) => {setLength(e.target.value)}}
           />
           <label>Length: {length}</label>
@@ -57,10 +68,11 @@ export default function App() {
           type="checkbox"
           defaultChecked={number}
           id="numberInput"
+          className=' checked:bg-blue-500 font-bold'
           onChange={() => {
-              setNumber((prev) => !prev);
+            setNumber((prev) => !prev);
           }}
-      />
+          />
       <label htmlFor="numberInput">Numbers</label>
       </div>
       <div className="flex items-center gap-x-1">
@@ -68,6 +80,7 @@ export default function App() {
               type="checkbox"
               defaultChecked={char}
               id="characterInput"
+              className=' checked:bg-blue-500 font-bold'
               onChange={() => {
                   setChar((prev) => !prev )
               }}

@@ -17,13 +17,19 @@ therefore js evaluated outcome/variable is written in jsx inside {}.
 * In React.js, "render" refers to the process of converting React elements into a DOM representation 
  and displaying them on the screen. It's the mechanism by which React components output what the user sees in the browser.
 
-## useState Hook
-The useState hook is called inside a functional component. It returns an array with two elements: 
+## Hooks
+* The useState hook is called inside a functional component. It returns an array with two elements: 
 the current state value and a function to update that state.
 syntax: 
 const [state , setstate] = useState(initial state)
 
+* useEffect 
 
+* useCallback
+
+* useRef
+
+## Fibre
 * HYDRATION : when dom tree loads in web page, it loads the structure first like- buttons etc. then it loads javascripts,
 this process is called hydration.
 
@@ -31,8 +37,9 @@ this process is called hydration.
 fibre for updating virtual dom. 
 
 * Reconciliation : Its a react's algorithm that redconsiders which elemets or props should be updated or checked.
-- "The algorithm React uses to differnciate one tree with another to determine which parts need to be changed."
-- Infact, reconciliation is the algorithm behind what is known as 'Virtual DOM'
+"The algorithm React uses to differnciate one tree with another to determine which parts need to be changed."
+ 
+Infact, reconciliation is the algorithm behind what is known as 'Virtual DOM'
 
 
 ## Must Read documentation for react fibre architecture basics : 
@@ -42,3 +49,9 @@ fibre for updating virtual dom.
 ## For readymade components user websites like:
 - devui.io 
 - bootstrap.com
+
+## Higher order Component:
+A higher-order component (HOC) is a pattern in React that allows you to reuse component logic. It's a function that takes a component and returns a new component with enhanced functionality. Essentially, it's a way to compose components and share functionality between them without repeating code.
+
+## Memoization
+Memoization is an optimization technique used to improve the performance of functions by caching the results of expensive function calls and returning the cached result when the same inputs occur again. In React, memoization is often used in the context of functional components to prevent unnecessary re-renders 
