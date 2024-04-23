@@ -5,7 +5,7 @@ function useCurrencyInfo (currency){
     const [data , setData] = useState({})
     useEffect(()=> {
         fetch(api)
-        .then( (res) => JSON.parse(res))
+        .then( (res) => res.json())
         .then( (res) => setData(res[currency]))
         console.log(data)
     } , [currency])

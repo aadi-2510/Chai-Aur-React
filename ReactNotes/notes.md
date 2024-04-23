@@ -55,3 +55,30 @@ A higher-order component (HOC) is a pattern in React that allows you to reuse co
 
 ## Memoization
 Memoization is an optimization technique used to improve the performance of functions by caching the results of expensive function calls and returning the cached result when the same inputs occur again. In React, memoization is often used in the context of functional components to prevent unnecessary re-renders 
+<hr>
+
+#### Always use 'key', if you want to use loops/maps i.e. iterations in jsx file.
+
+# REDUX
+* Just like React is a main library and React-DOM is another lib for manipulating DOM. 
+Similarlly Redux is a liberary and React-Redux is like a bridge that connects react with redux.
+
+Defination: Redux is basically a state management tool.
+
+*History of Redux: 
+Before development of context API and redux a tool named FLUX was designed by facebook architecture, again becasuse of state management issue.
+
+FLux - while working in a way to maintain a centralised container or global state was flux's initial approach.
+flux also introduced the concept of good Data Flow .
+
+Then Redux was introduced in 2015 stating concepts like:
+a) There should a proper approach
+b) Functionality should be passed through reducers only to prevent data overwrite.
+
+Then to eleminate error faced by redux too are solved by introduction of : 
+* Redux-Toolkit Concepts:
+- create a STORE for exmaple-  kind of global variable from where we take all of data by a single source of truth 'STORES ENTIRE DATA' 
+- REDUCERS : these handle the change that we want to make in store 'HANDLES FUNCTIONALITY'
+- 2 Methods are basically used : 
+a) useSelector 
+b) useDispatch 
