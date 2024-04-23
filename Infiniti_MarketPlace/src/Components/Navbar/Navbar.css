@@ -1,0 +1,19 @@
+.custom-search-input {
+    width: 284px;
+    height: 38px; 
+}
+
+.custom-filter {
+    height: 38px; 
+    margin-top: 0; 
+    margin-left: 1px;
+}
+
+
+.navbar-nav .nav-link ,
+.navbar-nav .nav-link.active{
+    color: black; 
+  }
+  
+    
+
